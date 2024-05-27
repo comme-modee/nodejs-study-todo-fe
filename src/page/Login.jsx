@@ -43,7 +43,7 @@ const Login = () => {
             <div className='error'>{error}</div>
             <div className='form'>
                 <div className='title'>로그인</div>
-                <div><div>name</div> <input id='name' placeholder='[테스터 정보] name: test / pw: test' type="text" value={name} onChange={(e)=>{setName(e.target.value)}}/></div>
+                <div><div>name</div> <input id='name' placeholder='[테스터 정보] name: 홍길동 / pw: 1234' type="text" value={name} onChange={(e)=>{setName(e.target.value)}}/></div>
                 <div><div>password</div> <input id='password' type="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/></div>
                 <div className='submit' onClick={() => login()}>로그인</div>
             </div>

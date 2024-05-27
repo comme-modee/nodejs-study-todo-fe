@@ -7,6 +7,7 @@ const api = axios.create({
     "Content-Type": "application/json",
   },
 });
+
 /**
  * console.log all requests and responses
  */
