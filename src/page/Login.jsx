@@ -16,7 +16,7 @@ const Login = () => {
         if(token) {
             navigate('/')
         }
-    },[token])
+    },[token, navigate])
 
     const login = async () => {
         try {
