@@ -1,0 +1,247 @@
+@font-face {
+  font-family: pretendard;
+  src: url(../font/PretendardVariable.woff2);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: pretendard;
+  font-size: 14px;
+}
+a { text-decoration: none; }
+
+/* 전체 스크롤바 스타일 */
+::-webkit-scrollbar {
+  width: 10px; /* 스크롤바의 너비 */
+}
+
+/* 스크롤바 트랙 스타일 */
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* 스크롤바 트랙의 배경색 */
+}
+
+/* 스크롤바 핸들(Thumb) 스타일 */
+::-webkit-scrollbar-thumb {
+  background: gold; /* 스크롤바 핸들의 배경색 */
+  border-radius: 6px; /* 스크롤바 핸들의 둥근 모서리 */
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 252, 212);
+  font-size: 14px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: gold;
+  line-height: 22px;
+}
+
+.icon-pen { font-size: 22px; }
+.icon-plus { font-size: 20px; }
+
+.container {
+  position: relative;
+  width: 420px;
+  height: 540px;
+  border-radius: 20px;
+  border: 1px solid gold;
+  background-color: rgb(255, 250, 180);
+  box-shadow: rgba(44, 40, 36, 0.1) 0px 20px 25px -5px, rgba(44, 40, 36, 0.04) 0px 10px 10px -5px;
+  padding: 30px;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 94vw;
+    padding: 30px 20px;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+.user-name > span,
+.date > span {
+  font-size: 16px;
+  color: #494642;
+  border-bottom: 1px solid #222;
+  font-weight: 500;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom: 10px; */
+}
+
+.task-status {
+  display: flex;
+  gap: 4px;
+}
+.task-status > div {
+  padding: 8px 10px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  cursor: pointer;
+  /* border: 1px solid rgb(218, 174, 63);
+  border-bottom: none; */
+  background-color: rgb(209, 209, 209);
+}
+.task-status > div:hover {
+  background-color: rgba(256, 215, 0, 0.5);
+}
+.task-status > .active {
+  background-color: rgba(256, 215, 0, 0.5);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 16px;
+  color: #222;
+}
+
+.todo-item-wrapper {
+  position: relative;
+  background-color: rgba(256, 215, 0, 0.5);
+  padding: 10px;
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+  border-radius: 6px;
+  border-top-right-radius: 0px;
+}
+
+.no-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0.7;
+  color: rgb(75, 59, 47);
+}
+
+.todo-item {
+  border: 1px solid gold;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  padding: 6px 6px 6px 12px;
+}
+
+.todo-item-done {
+  background-color: rgb(240, 240, 240);
+  color: rgb(160, 160, 160);
+  border: 1px solid rgb(196, 196, 196);
+}
+
+.todo-content-done {
+  text-decoration: line-through;
+}
+
+.add-item-row {
+  margin: 40px 0px 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+.input-box {
+  padding: 10px;
+  width: 85%;
+  border: 1px solid gold;
+  border-radius: 6px;
+}
+.input-box:focus {
+  outline: none;
+}
+.button-add {
+  height: 40px;
+  width: 15%;
+  border: 1px solid gold;
+  border-radius: 6px;
+  background-color: gold;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+.button-add:hover {
+  background-color: rgb(240, 184, 0);
+  border: 1px solid rgb(240, 184, 0);
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 4px;
+}
+
+.button-delete,
+.button-status {
+  border: none;
+  color: #fff;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-delete { background-color: rgb(224, 72, 92); }
+.done { background-color: cornflowerblue; }
+.ing { background-color: rgb(200, 217, 250); }
+.ing:hover { background-color: cornflowerblue; }
+
+.item-complete{
+  background-color: gainsboro;
+  color:white;
+}
+
+.logout-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: gold;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background-color: rgb(240, 184, 0);
+}
+
+.join {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.join > .join-btn {
+  border-bottom: 1px solid cornflowerblue;
+  cursor: pointer;
+  font-weight: 700;
+  color: cornflowerblue;
+}
+
+.join > .join-btn:hover {
+  color:rgb(224, 72, 92);
+  border-bottom: 1px solid rgb(224, 72, 92);
+}
