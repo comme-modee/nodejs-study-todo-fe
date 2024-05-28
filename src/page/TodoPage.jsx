@@ -1,3 +1,4 @@
+import '../css/Common.css'
 import "../css/TodoPage.css";
 
 import TodoBoard from "../components/TodoBoard";
@@ -8,26 +9,26 @@ import { faPen, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 
-function TodoPage() {
+const TodoPage = ({user, setUser}) => {
   const [ todoList, setTodoList ] = useState([]);
   const [ addTaskValue, setAddTaskValue ] = useState('');
   // const [ year, setYear ] = useState('')
   const [ today, setToday ] = useState('')
-  const name = sessionStorage.getItem('userName');
-  const token = sessionStorage.getItem('token');
+  const [ userName, setUserName ] = useState('');
   const navigate = useNavigate();
 
   useEffect(()=>{
-    if(!token) {
+    if(!user) {
       navigate('/login')
     } else {
+      setUserName(user.name)
       getTasks()
     }
 
     //오늘날짜 셋팅
     let today = new Date();
     setToday(`${String(today.getMonth() + 1)}월 ${String(today.getDate())}일`)
-  },[token])
+  },[user, navigate])
 
   const addTask = async () => {
     const res = await api.post('/tasks', {
@@ -44,6 +45,7 @@ function TodoPage() {
 
   const getTasks = async () => {
     const res = await api.get('/tasks')
+    console.log(res.data.data)
     setTodoList(res.data.data)
   }
 
@@ -67,7 +69,7 @@ function TodoPage() {
 
   const logout = () => {
     sessionStorage.clear();
-    navigate('/login')
+    setUser(null);
   }
 
   
@@ -77,7 +79,7 @@ function TodoPage() {
       <div className="header"><FontAwesomeIcon icon={faPen} className="icon-pen"/> Todo Board</div>
       <div className="container">
         <div className="info">
-            <div className="user-name"><span>{name}</span> 님</div>
+            <div className="user-name"><span>{userName}</span> 님</div>
             <div className="date">Date. <span>{today}</span></div>
         </div>
         <div className="add-item-row">

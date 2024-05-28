@@ -1,0 +1,25 @@
+.error-message {
+    padding: 10px;
+    color: tomato;
+    font-weight: 600;
+    text-align: center;
+}
+.input-error-message {
+    display: block;
+    color: tomato !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 6px 4px;
+}
+
+.error { border: 1px solid tomato !important; outline: 2px solid rgba(255, 99, 71, 0.15) !important; }
+.error-ani { animation: vibration 0.1s 5; }
+
+@keyframes vibration {
+    from {
+      transform: translateX(1px);
+    }
+    to {
+      transform: translateX(-1px);
+    }
+}

@@ -1,0 +1,39 @@
+@font-face {
+    font-family: pretendard;
+    src: url(../font/PretendardVariable.woff2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: pretendard;
+    font-size: 16px;
+}
+
+a { text-decoration: none; }
+
+/* 전체 스크롤바 스타일 */
+::-webkit-scrollbar {
+    width: 10px; /* 스크롤바의 너비 */
+}
+
+/* 스크롤바 트랙 스타일 */
+::-webkit-scrollbar-track {
+    background: #f0f0f0; /* 스크롤바 트랙의 배경색 */
+}
+
+/* 스크롤바 핸들(Thumb) 스타일 */
+::-webkit-scrollbar-thumb {
+    background: gold; /* 스크롤바 핸들의 배경색 */
+    border-radius: 6px; /* 스크롤바 핸들의 둥근 모서리 */
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 252, 212);
+}
