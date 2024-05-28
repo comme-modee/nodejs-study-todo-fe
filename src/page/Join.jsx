@@ -28,11 +28,9 @@ const Join = () => {
 
     useEffect(()=>{
         if (email !== '' && !validateEmail(email)) {
-            console.log('email error')
             setEmailErrorMessage('올바른 이메일 형식을 입력해주세요. ex) test@domain.com');
         } else {
             setEmailErrorMessage('')
-            console.log('error pass')
         }
     },[email])
 
@@ -41,34 +39,38 @@ const Join = () => {
         handleErrorAni()
         try {
             if(name === '') {
-                console.log('1')
                 setNameErrorMessage('아이디를 입력해주세요.');
             } else {
                 setNameErrorMessage('');
             }
+            
             if(password === '') {
-                console.log('2')
                 setPasswordErrorMessage('비밀번호를 입력해주세요.');
             } else {
                 setPasswordErrorMessage('');
             }
-            if(password !== confirmPassword) {
-                setPasswordConfirmErrorMessage('비밀번호가 일치하지 않습니다.');
-                setConfirmPassword('');
-                throw new Error('비밀번호를 확인해주세요.');
+
+            if(confirmPassword === '') {
+                setPasswordConfirmErrorMessage('비밀번호를 다시 한번 입력해주세요.')
             } else {
-                setPasswordConfirmErrorMessage('')
-            }
+                if(password !== confirmPassword) {
+                    setPasswordConfirmErrorMessage('비밀번호가 일치하지 않습니다.');
+                    setConfirmPassword('');
+                    throw new Error('비밀번호를 확인해주세요.');
+                } else {
+                    setPasswordConfirmErrorMessage('')
+                }
+            } 
+            
+
             if(email === '') {
                 setEmailErrorMessage('이메일을 입력해주세요.');
-            } else {
-                setEmailErrorMessage('')
-            }
-            if (email !== '' && !validateEmail(email)) {
+            } else if (email !== '' && !validateEmail(email)) {
                 setEmailErrorMessage('올바른 이메일 형식을 입력해주세요. ex) test@domain.com');
             } else {
                 setEmailErrorMessage('')
             }
+
             if(name !== '' && password !== '' && confirmPassword !== '' && password === confirmPassword && email !== '') {
                 const res = await api.post('/user', {
                     name,
