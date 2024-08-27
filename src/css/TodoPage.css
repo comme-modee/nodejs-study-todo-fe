@@ -1,6 +1,5 @@
 .header {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 6px;
   text-align: center;
@@ -228,4 +227,13 @@ h2 {
 
 .m-1 {
   margin: 20px 0 10px 0;
+}
+
+@media screen and (max-width: 540px) {
+  .logout-btn {
+    padding: 6px;
+    font-size: 14px;
+    top: 8px;
+    right: 8px;
+  }
 }
