@@ -29,7 +29,7 @@ const TodoBoard = ({ todoList, deleteTask, toggleComplete }) => {
   return (
     <>
       <div className="todo-header">
-        <h2>Todo List</h2>
+        <h2>To do List</h2>
         <div className="task-status">
           <div className={taskStatus === 'all' ? 'active' : ''} onClick={() => handleTodoList('all')}>전체</div>
           <div className={taskStatus === 'ing' ? 'active' : ''} onClick={() => handleTodoList('ing')}>진행중</div>
