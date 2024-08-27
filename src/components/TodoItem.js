@@ -6,6 +6,7 @@ const TodoItem = ({ item, deleteTask, toggleComplete }) => {
   
   return (
     <div className={`todo-item ${item.isComplete ? 'todo-item-done' : ''}`}>
+      <div className="writing-date">{item.createdAt.split('T')[0]}</div>
       <div className={`todo-content ${item.isComplete ? 'todo-content-done' : ''}`}>{item.task}</div>
       
       <div className="btn-wrapper">

@@ -100,10 +100,11 @@ h2 {
   border: 1px solid gold;
   background-color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
   border-radius: 6px;
   padding: 6px 6px 6px 12px;
+  flex-wrap: wrap;
 }
 
 .todo-item-done {
@@ -113,12 +114,14 @@ h2 {
 }
 
 .todo-content {
-  overflow: hidden;
+  width: 100%;
+  line-height: 22px;
+  /* overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
   display: -webkit-box;
   -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: vertical; */
 }
 
 .todo-content-done {
@@ -161,6 +164,11 @@ h2 {
   gap: 4px;
 }
 
+.writing-date {
+  font-size: 12px;
+  width: 100%;
+  padding: 4px 0;
+}
 .author {
   font-size: 14px;
   padding-right: 4px;
@@ -170,7 +178,7 @@ h2 {
 .button-status {
   border: none;
   color: #fff;
-  padding: 4px 6px;
+  padding: 2px 4px;
   border-radius: 4px;
   cursor: pointer;
 }

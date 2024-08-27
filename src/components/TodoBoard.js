@@ -21,7 +21,9 @@ const TodoBoard = ({ todoList, deleteTask, toggleComplete }) => {
   }
   
   useEffect(() => {
-    handleTodoList(taskStatus)
+    if(todoList.length > 0) {
+      handleTodoList(taskStatus)
+    }
   },[todoList, taskStatus])
 
   return (

@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 const TodoPage = ({user, setUser}) => {
   const [ todoList, setTodoList ] = useState([]);
   const [ addTaskValue, setAddTaskValue ] = useState('');
-  // const [ year, setYear ] = useState('')
   const [ today, setToday ] = useState('')
   const [ userName, setUserName ] = useState('');
   const navigate = useNavigate();
@@ -80,7 +79,7 @@ const TodoPage = ({user, setUser}) => {
       <div className="container">
         <div className="info">
             <div className="user-name"><span>{userName}</span> 님</div>
-            <div className="date">Date. <span>{today}</span></div>
+            <div className="date">오늘은 <span>{today}</span></div>
         </div>
         <div className="add-item-row">
           <input
@@ -88,9 +87,20 @@ const TodoPage = ({user, setUser}) => {
             placeholder="할일을 입력하세요"
             className="input-box"
             value={addTaskValue}
+            onKeyUp={(e) => {
+              if (e.key === 'Enter') {
+                addTask(addTaskValue);
+                setAddTaskValue('');
+              }
+            }}
             onChange={(e) => setAddTaskValue(e.target.value)}
           />
-          <button className="button-add" onClick={() => addTask(addTaskValue)}><FontAwesomeIcon icon={faPlus} className="icon-plus"/></button>
+          <button 
+            className="button-add" 
+            onClick={() => addTask(addTaskValue)}
+          >
+            <FontAwesomeIcon icon={faPlus} className="icon-plus"/>
+          </button>
         </div>
 
         <TodoBoard todoList={todoList} deleteTask={deleteTask} toggleComplete={toggleComplete}/>
