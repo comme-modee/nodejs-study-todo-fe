@@ -75,7 +75,7 @@ const TodoPage = ({user, setUser}) => {
   return (
     <>
       <div className="logout-btn" onClick={() => logout()}>로그아웃</div>
-      <div className="header"><FontAwesomeIcon icon={faPen} className="icon-pen"/> Todo Board</div>
+      <div className="header"><FontAwesomeIcon icon={faPen} className="icon-pen"/> To Do Board</div>
       <div className="container">
         <div className="info">
             <div className="user-name"><span>{userName}</span> 님</div>
